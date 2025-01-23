@@ -1,5 +1,396 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
+/*ОБЩИЕ СВОЙСТВА СТРАНИЦЫ*/
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  block-size: 100%;
+  min-height: 100vh;
+  font-family: var(--main-text-font);
+  padding: var(--page-padding);
+  background-image: var(--page-bg);
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/*ДЕКОРАТИВНАЯ НАДПИСЬ REC*/
+.rec {
+  position: absolute;
+  text-transform: uppercase;
+  right: 28px;
+  line-height: 25px;
+  color: var(--accent-color);
+  font-size: var(--main-text-size);
+  font-weight: var(--regular-font-weight);
+}
+
+.rec::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: 43px;
+  inline-size: 8px;
+  block-size: 8px;
+  background: var(--accent-color);
+  box-shadow: 0 0 3px 3px var(--accent-color);
+  border-radius: 50%;
+}
+
+/* ДЕКОРАТИВНЫЕ УГОЛКИ */
+.corner {
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.corner::before,
+.corner::after {
+  content: "";
+  position: absolute;
+  background: var(--accent-color);
+}
+
+/* УГОЛОК СВЕРХУ СПРАВА */
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.top-right::before {
+  top: 0;
+  right: 0;
+  inline-size: 1px;
+  block-size: 100%;
+}
+
+.top-right::after {
+  top: 0;
+  right: 0;
+  inline-size: 100%;
+  block-size: 1px;
+}
+
+/* УГОЛОК СНИЗУ СЛЕВА */
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-left::before {
+  bottom: 0;
+  left: 0;
+  inline-size: 1px;
+  block-size: 100%;
+}
+
+.bottom-left::after {
+  bottom: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 1px;
+}
+
+/*ОБЩИЕ СВОЙСТВА HEADER*/
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-block-end: var(--header-margin-block-end);
+}
+
+/*ОБЩИЕ СВОЙСТВА МЕНЮ ВЫБОРА ТЕМЫ*/
+.header__theme-menu {
+  margin-block-start: var(--menu-margin-block-start);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/*СВОЙСТВА КНОПОК МЕНЮ ВЫБОРА ТЕМЫ*/
+.header__theme-menu-button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  inline-size: 70px;
+  block-size: 26px;
+  font-size: var(--main-text-size);
+  font-weight: var(--regular-font-weight);
+  color: var(--accent-color);
+}
+
+/*СОСТОЯНИЯ КНОПОК МЕНЮ ВЫБОРА ТЕМЫ*/
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-hover-border-color);
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  inline-size: 100%;
+  block-size: 1px;
+  background-color: var(--accent-color);
+}
+
+.header__theme-menu-item .header__theme-menu-button_active {
+  outline: 1px solid;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+}
+
+/*СВОЙСТВА ЗАГОЛОВКА*/
+.title {
+  font-weight: var(--bold-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--title-color);
+  line-height: var(--title-line-height);
+  text-shadow: 4px 4px 0 var(--accent-color);
+  margin-block-start: var(--title-margin-block-start);
+  margin-block-end: var(--title-margin-block-end);
+}
+
+/*СВОЙСТВА ПОДПИСИ ПОД ЗАГОЛОВКОМ*/
+.title-descripton {
+  inline-size: var(--title-descripton-inline-size);
+  margin-block-end: var(--title-description-margin-block-end);
+}
+
+.title-descripton-text {
+  font-size: var(--main-text-size);
+  font-weight: var(--bold-font-weight);
+  color: var(--subtitles-color);
+  line-height: var(--main-text-line-height);
+  background-color: var(--accent-color);
+}
+
+/*ОБЩИЕ ДЕКОРАТИВНЫЕ СВОЙСТВА*/
+.title-decor {
+  font-size: var(--main-text-size);
+  font-weight: var(--bold-font-weight);
+  color: var(--subtitles-color);
+  background-color: var(--accent-color);
+}
+
+/*ОБЩИЕ СВОЙСТВА ОСНОВНОГО КОНТЕНТА*/
+.content {
+  font-size: var(--main-text-size);
+  line-height: var(--main-text-line-height);
+}
+
+/*СВОЙСТВА ССЫЛОК*/
+.text-link {
+  text-shadow: 1.99px 1px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+/*СОСТОЯНИЯ ССЫЛОК*/
+.text-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.text-link:focus-visible {
+  outline: 1px solid var(--main-color);
+}
+
+/*ОБЩИЕ СВОЙСТВА КАЖДОГО ТОПИКА*/
+.topic-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--topic-item-gap);
+}
+
+/*ОТСТУПЫ СПИСКА ТОПИКОВ*/
+.topic-item:not(:last-child) {
+  margin-block-end: var(--topic-item-margin-block-end);
+}
+
+/*СВОЙСТВА ЗАГОЛОВКА ТОПИКА*/
+.topic-title {
+  font-weight: var(--bold-font-weight);
+  color: var(--accent-color);
+}
+
+/*ОБЩИЕ СВОЙСТВА СПИСКА ТЕМ ТОПИКА*/
+.topic-articles-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--topic-articles-list-gap);
+}
+
+/*СВОЙСТВА КОНТЕНТА ТОПИКА*/
+.topic-article-content {
+  margin-block-start: var(--topic-article-content-margin-block-start);
+}
+
+/*СВОЙСТВА ТЕКСТА ТЕМЫ ТОПИКА*/
+.topic-article-text {
+  font-size: var(--main-text-size);
+  font-weight: var(--regular-font-weight);
+  color: var(--main-color);
+}
+
+/*СВОЙСТВА ЗАГОЛОВКОВ СОВЕТОВ*/
+.piece-of-advice {
+  font-weight: var(--regular-font-weight);
+}
+
+/*ОБЩИЕ СВОЙСТВА ТОПИКА С ГАЛЕРЕЕЙ*/
+.gallery-topic {
+  gap: 0;
+}
+
+/*ОБЩИЕ СВОЙСТВА ГАЛЕРЕИ*/
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gallery-gap);
+}
+
+.gallery-item {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/*ОБЩИЕ СВОЙСТВА FOOTER*/
+.footer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  block-size: var(--footer-block-size);
+  margin-block-start: var(--footer-margin-block-start);
+}
+
+/*СВОЙСТВА ЗАГОЛОВКА В FOOTER*/
+.footer-title {
+  align-self: center;
+  text-align: center;
+  font-weight: var(--bold-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--title-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  line-height: var(--title-line-height);
+}
+
+/*МЕДИАЗАПРОС >= 768px*/
+@media (width >= 768px) {
+  :root {
+    --page-padding: 20px;
+    --menu-margin-block-start: 171.5px;
+    --title-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    --title-margin-block-start: 175px;
+    --title-margin-block-end: 164px;
+    --title-descripton-inline-size: 364px;
+    --title-description-margin-block-end: 163px;
+    --header-margin-block-end: 80px;
+    --topic-item-margin-block-end: 80px;
+    --topic-article-content-margin-block-start: 10px;
+    --gallery-gap: 20px;
+    --footer-margin-block-start: 80px;
+    --footer-block-size: 984px;
+  }
+
+  .title {
+    margin-inline-start: -20px;
+  }
+
+  .title-descripton {
+    margin-inline-start: auto;
+  }
+
+  .topic-item {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .what-topic .topic-articles-list {
+    grid-row: 2;
+    grid-column: span 2;
+  }
+
+  .how-topic .topic-title {
+    grid-row: span 2;
+  }
+
+  .how-topic .topic-articles-list {
+    grid-column: 2;
+  }
+
+  .gallery-topic {
+    gap: var(--gallery-gap);
+  }
+
+  .gallery-topic .topic-article-title {
+    grid-column: span 2;
+  }
+
+  .gallery {
+    grid-column: span 2;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 192px 230px 318px;
+    gap: var(--topic-item-gap);
+  }
+
+  .gallery {
+    margin-block-start: 0;
+  }
+
+  .sunset {
+    grid-column: span 2;
+  }
+
+  .ice-cream {
+    grid-row: span 2;
+  }
+
+  .tape {
+    grid-row: span 2;
+  }
+
+  .street {
+    grid-column: span 2;
+  }
+}
+
+/*МЕДИАЗАПРОС >= 1024px*/
+@media (width >= 1024px) {
+  :root {
+    --menu-margin-block-start: 0;
+    --title-margin-block-start: 290px;
+    --title-margin-block-end: 130px;
+    --title-descripton-inline-size: 491px;
+    --title-description-margin-block-end: 115px;
+    --footer-block-size: 728px;
+  }
+
+  .header__theme-menu-list {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .what-topic .topic-articles-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery {
+    grid-template-rows: 260px 315px 433px;
+  }
+
+  .why-topic {
+    gap: 20px 10px;
+  }
+
+  .how-topic {
+    gap: 20px 10px;
+  }
 }
