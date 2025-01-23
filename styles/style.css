@@ -301,9 +301,6 @@ footer.decorated-zone::after {
     grid-column: span 2;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--topic-item-gap);
-  }
-
-  .gallery {
     margin-block-start: 0;
   }
 
