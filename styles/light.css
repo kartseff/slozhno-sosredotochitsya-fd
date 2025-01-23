@@ -1,67 +1,36 @@
 :root.theme-light {
   --page-bg: url("../images/cover-image-light.png");
+  --bg-color: #fff1f7;
   --main-color: #353430;
   --title-color: #FFC2E6;
   --accent-color: #FF8DCB;
+  --corners-color: #353430;
+  --header__theme-menu-button-color: #353430;
+  --topic-title-color: #353430;
   --subtitles-color: #353430;
-  --button-hover-border-color: #32312D66; 
+  --button-hover-border-color: #32312D66;
+  /*не особо понятна ошибка в цвете: цвет был скопирован с макета. макет взят с темы "проектная работа"*/
 }
 
 .theme-light .rec {
   display: none;
 }
 
-.theme-light .corner::after {
-  background: var(--main-color);
-}
-
-.theme-light .corner::before {
-  background: var(--main-color);
-}
-
-.theme-light .header__theme-menu-button {
-  color: var(--main-color);
-}
-
-.theme-light .topic-title {
-  color: var(--main-color);
-}
-
-.theme-light .header__theme-menu-button:focus-visible::after {
-  background-color: var(--main-color);
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     --page-bg: url("../images/cover-image-light.png");
+    --bg-color: #fff1f7;
     --main-color: #353430;
     --title-color: #FFC2E6;
     --accent-color: #FF8DCB;
+    --corners-color: #353430;
+    --header__theme-menu-button-color: #353430;
+    --topic-title-color: #353430;
     --subtitles-color: #353430;
-    --button-hover-border: #32312D66; 
+    --button-hover-border-color: #32312D66; 
   }
   
   .rec {
     display: none;
-  }
-  
-  .corner::before {
-    background: var(--main-color);
-  }
-  
-  .corner::after {
-    background: var(--main-color);
-  }
-  
-  .header__theme-menu-button {
-    color: var(--main-color);
-  }
-  
-  .topic-title {
-    color: var(--main-color);
-  }
-
-  .header__theme-menu-button:focus-visible::after {
-    background-color: var(--main-color);
   }
 }

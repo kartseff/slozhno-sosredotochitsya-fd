@@ -3,7 +3,7 @@
   --page-bg: url("../images/cover-image-dark.png");
   --page-padding: 10px;
   /*шрифт*/
-  --main-text-font: 'IBM Plex mono', sans-serif;
+  --main-text-font: 'IBM Plex mono', monospace;
   --bold-font-weight: bold;
   --regular-font-weight: normal;
   --title-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -11,18 +11,22 @@
   --title-line-height: 95.7px;
   --main-text-line-height: 23.4px;
   /*цвета*/
+  --bg-color: #000028;
   --main-color: #F1B2CE;
   --title-color: #DB00FF;
   --accent-color: #FF0070;
+  --corners-color: #FF0070;
+  --header__theme-menu-button-color: #FF0070;
+  --topic-title-color: #FF0070;
   --subtitles-color: #000028;
   --button-hover-border-color: #FF007066;
   /*хедер*/
-  --header-margin-block-end: 50px;
+  --header-margin-block-end: 30px;
   --menu-margin-block-start: 63px;
-  --title-margin-block-start: 68px;
-  --title-margin-block-end: 55px;
+  --title-margin-block-start: 10px;
   --title-descripton-inline-size: 355px;
-  --title-description-margin-block-end: 55px;
+  --title-description-margin-block-end: 20px;
+  --header-footer-min-height: 668px;
   /*основной контент*/
   --topic-item-gap: 20px;
   --topic-item-margin-block-end: 50px;
@@ -30,6 +34,35 @@
   --topic-article-content-margin-block-start: 10px;
   --gallery-gap: 10px;
   /*футер*/
-  --footer-block-size: 648px;
-  --footer-margin-block-start: 50px;
+  --footer-margin-block-start: 30px;
+}
+
+/*МЕДИАЗАПРОС >= 768px*/
+@media (width >= 768px) {
+  :root {
+    --page-padding: 20px;
+    --menu-margin-block-start: 171.5px;
+    --title-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    --title-margin-block-start: 10px;
+    --title-descripton-inline-size: 364px;
+    --title-description-margin-block-end: 35px;
+    --header-margin-block-end: 40px;
+    --topic-item-margin-block-end: 80px;
+    --topic-article-content-margin-block-start: 10px;
+    --gallery-gap: 20px;
+    --footer-margin-block-start: 38px;
+    --header-footer-min-height: 1024px;
+  }
+}
+
+/*МЕДИАЗАПРОС >= 1024px*/
+@media (width >= 1024px) {
+  :root {
+    --menu-margin-block-start: 0;
+    --title-margin-block-start: 160px;
+    --header-margin-block-end: 40px;
+    --title-descripton-inline-size: 491px;
+    --title-description-margin-block-end: 25px;
+    --header-footer-min-height: 768px;
+  }
 }
