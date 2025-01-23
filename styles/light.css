@@ -11,11 +11,11 @@
   display: none;
 }
 
-.theme-light .corner::before {
+.theme-light .corner::after {
   background: var(--main-color);
 }
 
-.theme-light .corner::after {
+.theme-light .corner::before {
   background: var(--main-color);
 }
 
