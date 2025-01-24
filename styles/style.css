@@ -4,7 +4,7 @@
   min-height: 100vh;
   background-color: var(--bg-color);
   font-family: var(--main-text-font);
-  padding: var(--page-padding);
+  /*padding: var(--page-padding);*/
   background-image: var(--page-bg);
   background-position: center;
   background-attachment: fixed;
@@ -14,7 +14,8 @@
 .rec {
   position: absolute;
   text-transform: uppercase;
-  right: 28px;
+  right: var(--rec-right);
+  top: var(--rec-top);
   line-height: 25px;
   color: var(--accent-color);
   font-size: var(--main-text-size);
@@ -39,7 +40,6 @@
   position: relative;
 }
 
-/*УГОЛКИ*/
 .decorated-zone::before,
 .decorated-zone::after {
   content: "";
@@ -49,31 +49,17 @@
 }
 
 /*УГОЛОК СВЕРХУ СПРАВА*/
-header.decorated-zone::after {
-  top: 0;
-  right: 0;
-  border: solid var(--corners-color);
-  border-width: 1px 1px 0 0;
-}
-
-footer.decorated-zone::after {
-  top: 20px;
-  right: 0;
+.decorated-zone::after {
+  top: var(--corner-position);
+  right: var(--corner-position);
   border: solid var(--corners-color);
   border-width: 1px 1px 0 0;
 }
 
 /*УГОЛОК СНИЗУ СЛЕВА*/
-.header.decorated-zone::before {
-  bottom: 20px;
-  left: 0;
-  border: solid var(--corners-color);
-  border-width: 0 0 1px 1px;
-}
-
-.footer.decorated-zone::before {
-  bottom: 0;
-  left: 0;
+.decorated-zone::before {
+  bottom: var(--corner-position);
+  left: var(--corner-position);
   border: solid var(--corners-color);
   border-width: 0 0 1px 1px;
 }
@@ -85,6 +71,7 @@ footer.decorated-zone::after {
   grid-template-columns: 1fr;
   block-size: 100vh;
   min-height: var(--header-footer-min-height);
+  padding: var(--page-padding);
   margin-block-end: var(--header-margin-block-end);
 }
 
@@ -164,6 +151,7 @@ footer.decorated-zone::after {
 .content {
   font-size: var(--main-text-size);
   line-height: var(--main-text-line-height);
+  padding: var(--page-padding);
 }
 
 /*СВОЙСТВА ССЫЛОК*/
@@ -245,9 +233,8 @@ footer.decorated-zone::after {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  min-height: var(--header-footer-min-height);
   block-size: 100vh;
-  padding-top: 20px;
+  min-height: var(--header-footer-min-height);
   margin-block-start: var(--footer-margin-block-start);
 }
 
@@ -319,18 +306,6 @@ footer.decorated-zone::after {
   .street {
     grid-column: span 2;
   }
-  
-  footer.decorated-zone::after {
-    top: 40px;
-  }
-  
-  .header.decorated-zone::before {
-    bottom: 40px;
-  }
-
-  .footer {
-    padding-top: 40px;
-  }
 }
 
 /*МЕДИАЗАПРОС >= 1024px*/
@@ -350,17 +325,5 @@ footer.decorated-zone::after {
 
   .how-topic {
     gap: 20px 10px;
-  }
-
-  footer.decorated-zone::after {
-    top: 40px;
-  }
-  
-  .header.decorated-zone::before {
-    bottom: 40px;
-  }
-
-  .footer {
-    padding-top: 40px;
   }
 }
